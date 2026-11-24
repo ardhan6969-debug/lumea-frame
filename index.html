@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumea Frame – Booking Foto Wisuda</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff5f6;--bg2:#f3e9f7;--card:#ffffff;--ink:#4a2f3a;--mute:#8a6b77;--rose:#d9788f;--rose-d:#b8566f;--line:#f0d3da;--soft:#fde4ea;--ok:#3f8a6a;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b1b22;--bg2:#2a2036;--card:#3a2630;--ink:#fbe9ee;--mute:#d3aab7;--rose:#ee93a9;--rose-d:#f6aabc;--line:#573844;--soft:#4a2f3a;--ok:#7fd1a8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2b1b22;--bg2:#2a2036;--card:#3a2630;--ink:#fbe9ee;--mute:#d3aab7;--rose:#ee93a9;--rose-d:#f6aabc;--line:#573844;--soft:#4a2f3a;--ok:#7fd1a8;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:Jost,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%) fixed;background-color:var(--bg);line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{text-align:center;padding:44px 0 26px}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:40px;letter-spacing:.32em;font-weight:600;margin:0;padding-left:.32em}
+.tag{font-size:13px;color:var(--mute);letter-spacing:.08em;margin:2px 0 0}
+.script{font-family:"Pinyon Script","Brush Script MT",cursive;font-size:clamp(46px,9vw,78px);line-height:1.05;margin:18px 0 8px;color:var(--rose-d)}
+.lead{max-width:460px;margin:0 auto 22px;color:var(--mute)}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 16px Jost,sans-serif;background:var(--rose);color:#fff;padding:13px 28px;border-radius:999px;text-decoration:none}
+.btn:hover{background:var(--rose-d)}
+.btn.ghost{background:transparent;color:var(--rose-d);border:1.5px solid var(--rose)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.pkg:focus-visible,.slot:focus-visible{outline:3px solid var(--rose-d);outline-offset:2px}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;margin:44px 0 6px}
+.sub{color:var(--mute);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pkg{background:var(--card);border:2px solid var(--line);border-radius:26px 26px 22px 22px;padding:22px 20px;text-align:left;cursor:pointer;color:inherit;font:inherit;display:flex;flex-direction:column;gap:6px}
+.pkg[aria-pressed="true"]{border-color:var(--rose);background:var(--soft)}
+.pkg h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;margin:0}
+.pkg .pr{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;font-weight:700;color:var(--rose-d)}
+.pkg ul{list-style:none;margin:6px 0 0;padding:0;color:var(--mute);font-size:15px}
+.pkg li::before{content:"✦ ";color:var(--rose)}
+.pkg .pick{margin-top:auto;padding-top:10px;font-weight:600;color:var(--rose-d)}
+.addon{margin-top:18px;background:var(--card);border:2px dashed var(--rose);border-radius:22px;padding:18px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.addon label{display:flex;gap:12px;align-items:center;cursor:pointer;flex:1;min-width:240px}
+.addon input{width:22px;height:22px;accent-color:var(--rose-d)}
+.addon b{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px}
+.addon .p{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;font-weight:700;color:var(--rose-d)}
+.addon small{display:block;color:var(--mute)}
+.perks{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin:26px 0 0;color:var(--mute);font-size:15px}
+.form{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
+@media(max-width:780px){.form{grid-template-columns:1fr}}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:26px;padding:24px}
+label.f{display:block;font-weight:500;margin:0 0 14px}
+label.f span{display:block;font-size:14px;color:var(--mute);margin-bottom:4px}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:11px 14px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.slot{font:inherit;cursor:pointer;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px}
+.slot[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.sum{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);background:linear-gradient(180deg,var(--soft),var(--card))}
+.sum h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;margin:0 0 10px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+.row span:first-child{color:var(--mute)}
+.row span:last-child{text-align:right}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0}
+.tot b{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;color:var(--rose-d)}
+.err{color:#c0392b;font-size:15px;font-weight:500;margin:0}
+.err:not(:empty){background:#fdecea;border-radius:12px;padding:10px 14px;margin:0 0 12px}
+.btn,.slot,.pkg{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+input[type=date]{-webkit-appearance:none;appearance:none;min-height:46px}
+.bad{border-color:#c0392b !important}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#ff9f9f}}
+.done{display:none;text-align:center;padding:30px 22px}
+.done.on{display:block}
+.done .code{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px;letter-spacing:.12em;color:var(--rose-d);margin:4px 0 12px}
+.done textarea{height:210px;font-size:14px;text-align:left;margin:10px 0 14px}
+.acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.list{margin-top:16px;display:grid;gap:10px}
+.item{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:12px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:15px}
+footer{text-align:center;color:var(--mute);padding:46px 0 36px;font-size:14px}
+footer a{color:var(--rose-d)}
+@media(max-width:640px){.wrap{padding:0 14px}header{padding:30px 0 18px}.logo{font-size:30px}.box{padding:18px;border-radius:22px}.sum{position:static}#submit,#waBtn,.acts .btn{width:100%;text-align:center}.acts{flex-direction:column}.addon label{min-width:0}.row{font-size:14px}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .err:not(:empty){background:#4a2327}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1 class="logo">LUMEA</h1>
+  <p class="tag">Frame · Moments Worth Remembering</p>
+  <p class="script">Graduation Photo Shoot</p>
+  <p class="lead">Abadikan momen wisudamu dengan hasil foto yang estetik, profesional, dan penuh cerita.</p>
+  <a class="btn" href="#booking" id="goBook">Booking sekarang</a>
+</header>
+
+<section id="pricelist" aria-labelledby="hPL">
+  <h2 id="hPL">Price list</h2>
+  <p class="sub">Pilih paket untuk mulai booking.</p>
+  <div class="grid" id="pkgs">
+    <div class="pkg"><h3>Personal</h3><span class="pr">Rp 300.000</span><ul><li>1,5 jam</li><li>25 foto editing</li></ul></div>
+    <div class="pkg"><h3>Family</h3><span class="pr">Rp 350.000</span><ul><li>1,5 jam</li><li>30 foto editing</li></ul></div>
+    <div class="pkg"><h3>All Include</h3><span class="pr">Rp 450.000</span><ul><li>2 jam</li><li>40 foto editing</li></ul></div>
+    <div class="pkg"><h3>All Include + Video Cinematic</h3><span class="pr">Rp 550.000</span><ul><li>2 jam (maks. 2 jam)</li><li>40 foto editing</li><li>Video cinematic</li></ul></div>
+  </div>
+  <div class="addon">
+    <label><input type="checkbox" id="addonChk"><span><b>Add on: Video Cinematic</b><small>Maksimal durasi 1 menit, full editing, dan sesuai request.</small></span></label>
+    <span class="p">+ Rp 150.000</span>
+  </div>
+  <div class="perks"><span>📷 Fotografer profesional</span><span>✦ Hasil foto high quality</span><span>✉ Pengiriman foto cepat &amp; aman</span></div>
+</section>
+
+<section id="booking" aria-labelledby="hBK">
+  <h2 id="hBK">Form booking</h2>
+  <p class="sub">Isi data di bawah, lalu kamu langsung diarahkan ke WhatsApp Lumea Frame dengan pesan booking yang sudah terisi.</p>
+  <noscript><div class="box" style="margin-bottom:16px"><b>Form booking butuh JavaScript.</b> Buka file ini lewat Chrome atau Safari, bukan lewat pratinjau file. Atau langsung booking lewat <a href="https://wa.me/6281219197953?text=Halo%20Lumea%20Frame%2C%20saya%20ingin%20booking%20foto%20wisuda.">WhatsApp Lumea Frame</a>.</div></noscript>
+  <p class="sub" id="jsNote" style="display:none"></p>
+  <div class="form" id="formArea">
+    <div class="box">
+      <label class="f"><span>Paket</span>
+        <select id="pkgSel"></select></label>
+      <label class="f"><span>Nama lengkap</span><input type="text" id="nama" autocomplete="name" placeholder="Nama kamu"></label>
+      <label class="f"><span>Nomor WhatsApp</span><input type="tel" id="hp" autocomplete="tel" placeholder="08xxxxxxxxxx"></label>
+      <label class="f"><span>Universitas / lokasi wisuda</span><input type="text" id="lokasi" placeholder="Contoh: Kampus UI Depok"></label>
+      <label class="f"><span>Tanggal sesi foto</span><input type="date" id="tgl"></label>
+      <div><span style="display:block;font-size:14px;color:var(--mute);margin-bottom:6px">Jam mulai</span>
+        <div class="slots" id="slots"></div></div>
+      <label class="f"><span>Catatan (konsep, jumlah orang, request video)</span><textarea id="cat" rows="3"></textarea></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn" id="submit" type="button">Booking via WhatsApp</button>
+    </div>
+    <aside class="box sum" aria-live="polite">
+      <h3>Ringkasan</h3>
+      <div id="sumRows"></div>
+      <div class="tot"><span>Total</span><b id="total">Rp 0</b></div>
+      <small style="color:var(--mute)">Pembayaran dan konfirmasi jadwal dilakukan bersama tim Lumea Frame.</small>
+    </aside>
+  </div>
+
+  <div class="box done" id="done">
+    <div style="font-size:40px">🎓</div>
+    <h2 style="margin:4px 0">Booking tercatat</h2>
+    <div class="code" id="code"></div>
+    <p class="sub">Tinggal kirim pesan ini ke WhatsApp Lumea Frame untuk konfirmasi jadwal. Kalau WhatsApp belum terbuka, tekan tombol hijau di bawah.</p>
+    <textarea id="msg" readonly aria-label="Pesan booking"></textarea>
+    <div class="acts">
+      <a class="btn" id="waBtn" style="background:#25875a" href="https://wa.me/6281219197953" target="_blank" rel="noopener">Kirim ke WhatsApp</a>
+      <button class="btn ghost" id="copy" type="button">Salin pesan</button>
+      <button class="btn ghost" id="again" type="button">Booking lagi</button>
+    </div>
+  </div>
+
+  <div id="mine" style="display:none">
+    <h2>Booking kamu</h2>
+    <div class="list" id="list"></div>
+  </div>
+</section>
+
+<footer>© Lumea Frame · WhatsApp 0812-1919-7953 · Instagram <a href="https://www.instagram.com/LumeaFrame_" target="_blank" rel="noopener">@LumeaFrame_</a></footer>
+</div>
+
+<script>
+var PK=[
+ {id:"personal",name:"Personal",price:300000,jam:"1,5 jam",foto:"25 foto editing",video:false},
+ {id:"family",name:"Family",price:350000,jam:"1,5 jam",foto:"30 foto editing",video:false},
+ {id:"all",name:"All Include",price:450000,jam:"2 jam",foto:"40 foto editing",video:false},
+ {id:"allvideo",name:"All Include + Video Cinematic",price:550000,jam:"2 jam (maks. 2 jam)",foto:"40 foto editing",video:true}
+];
+var ADDON=150000, SLOTS=["07:00","08:00","09:00","10:00","13:00","14:00","15:00","16:00"];
+var state={pkg:"personal",addon:false,slot:""};
+var $=function(i){return document.getElementById(i)};
+var rp=function(n){return "Rp "+n.toLocaleString("id-ID")};
+var cur=function(){return PK.filter(function(p){return p.id===state.pkg})[0]};
+
+function renderPk(){
+  $("pkgs").innerHTML=PK.map(function(p){
+    return '<button type="button" class="pkg" data-id="'+p.id+'" aria-pressed="'+(p.id===state.pkg)+'"><h3>'+p.name+'</h3><span class="pr">'+rp(p.price)+'</span><ul><li>'+p.jam+'</li><li>'+p.foto+'</li>'+(p.video?'<li>Video cinematic</li>':'')+'</ul><span class="pick">'+(p.id===state.pkg?"Dipilih ✓":"Pilih paket")+'</span></button>';
+  }).join("");
+  $("pkgSel").innerHTML=PK.map(function(p){return '<option value="'+p.id+'"'+(p.id===state.pkg?" selected":"")+'>'+p.name+' – '+rp(p.price)+'</option>'}).join("");
+}
+function renderSlots(){
+  $("slots").innerHTML=SLOTS.map(function(s){return '<button type="button" class="slot" data-s="'+s+'" aria-pressed="'+(s===state.slot)+'">'+s+'</button>'}).join("");
+}
+function total(){var p=cur();return p.price+(state.addon&&!p.video?ADDON:0)}
+function fmtDate(v){if(!v)return "-";var d=new Date(v+"T00:00:00");return d.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+function renderSum(){
+  var p=cur(), ad=state.addon&&!p.video;
+  $("addonChk").disabled=p.video;
+  $("addonChk").checked=ad;
+  var rows=[["Paket",p.name],["Durasi",p.jam],["Hasil",p.foto+(p.video?" + video":"")]];
+  if(ad)rows.push(["Add on","Video Cinematic (+ "+rp(ADDON)+")"]);
+  rows.push(["Tanggal",fmtDate($("tgl").value)],["Jam",state.slot||"-"]);
+  $("sumRows").innerHTML=rows.map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'}).join("");
+  $("total").textContent=rp(total());
+}
+function setPkg(id){state.pkg=id;if(cur().video)state.addon=false;renderPk();renderSum()}
+
+$("pkgs").addEventListener("click",function(e){var b=e.target.closest(".pkg");if(!b)return;setPkg(b.dataset.id);$("goBook").focus&&0;document.getElementById("booking").scrollIntoView({behavior:"smooth"})});
+$("pkgSel").addEventListener("change",function(e){setPkg(e.target.value)});
+$("addonChk").addEventListener("change",function(e){state.addon=e.target.checked;renderSum()});
+$("slots").addEventListener("click",function(e){var b=e.target.closest(".slot");if(!b)return;state.slot=b.dataset.s;renderSlots();renderSum()});
+$("tgl").addEventListener("change",renderSum);
+
+var t=new Date();t.setDate(t.getDate()+1);
+$("tgl").min=t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");
+
+var bookings=[];
+function renderList(){
+  $("mine").style.display=bookings.length?"block":"none";
+  $("list").innerHTML=bookings.map(function(b){return '<div class="item"><b>'+b.code+'</b><span>'+b.pkg+' · '+b.date+' · '+b.time+'</span><span>'+b.total+'</span></div>'}).join("");
+}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+$("submit").addEventListener("click",function(){
+  var n=$("nama").value.trim(),h=$("hp").value.replace(/[\s-]/g,""),l=$("lokasi").value.trim(),d=$("tgl").value;
+  var e="",fid="";
+  ["nama","hp","lokasi","tgl"].forEach(function(i){$(i).classList.remove("bad")});
+  if(!n){e="Isi nama lengkap dulu.";fid="nama"}
+  else if(!/^(\+62|62|0)8\d{7,12}$/.test(h)){e="Nomor WhatsApp belum valid. Contoh: 081234567890.";fid="hp"}
+  else if(!l){e="Isi lokasi wisuda.";fid="lokasi"}
+  else if(!d){e="Pilih tanggal sesi foto.";fid="tgl"}
+  else if(!state.slot){e="Pilih jam mulai.";fid="slots"}
+  $("err").textContent=e;
+  if(e){
+    var el=$(fid);if(fid!=="slots")el.classList.add("bad");
+    el.scrollIntoView({behavior:"smooth",block:"center"});
+    if(fid!=="slots"){try{el.focus({preventScroll:true})}catch(x){}}
+    return;
+  }
+  var p=cur(),ad=state.addon&&!p.video;
+  var code="LF-"+Math.random().toString(36).slice(2,6).toUpperCase()+String(Date.now()).slice(-3);
+  var msg="Halo Lumea Frame, saya ingin booking foto wisuda.\n\nKode: "+code+"\nNama: "+n+"\nWhatsApp: "+$("hp").value.trim()+"\nPaket: "+p.name+" ("+rp(p.price)+")\n"+(ad?"Add on: Video Cinematic (+"+rp(ADDON)+")\n":"")+"Lokasi: "+l+"\nTanggal: "+fmtDate(d)+"\nJam: "+state.slot+"\nCatatan: "+($("cat").value.trim()||"-")+"\n\nTotal: "+rp(total())+"\n\nTerima kasih!";
+  $("code").textContent=code;$("msg").value=msg;
+  var wa="https://wa.me/6281219197953?text="+encodeURIComponent(msg);
+  $("waBtn").href=wa;
+  try{window.open(wa,"_blank","noopener")}catch(x){}
+  bookings.push({code:code,pkg:p.name+(ad?" + Video":""),date:fmtDate(d),time:state.slot,total:rp(total())});
+  try{var a=JSON.parse(localStorage.getItem("lf_b")||"[]");a.push(bookings[bookings.length-1]);localStorage.setItem("lf_b",JSON.stringify(a))}catch(x){}
+  renderList();
+  $("formArea").style.display="none";$("done").classList.add("on");
+  $("done").scrollIntoView({behavior:"smooth"});
+});
+$("copy").addEventListener("click",function(){
+  var b=$("copy"),m=$("msg");
+  function ok(){b.textContent="Tersalin ✓";setTimeout(function(){b.textContent="Salin pesan"},2000)}
+  try{navigator.clipboard.writeText(m.value).then(ok,function(){m.select();document.execCommand("copy");ok()})}catch(x){m.select();try{document.execCommand("copy");ok()}catch(y){}}
+});
+$("again").addEventListener("click",function(){
+  ["nama","hp","lokasi","tgl","cat"].forEach(function(i){$(i).value=""});
+  state.slot="";renderSlots();renderSum();
+  $("done").classList.remove("on");$("formArea").style.display="";
+  $("formArea").scrollIntoView({behavior:"smooth"});
+});
+
+try{bookings=JSON.parse(localStorage.getItem("lf_b")||"[]")}catch(x){bookings=[]}
+renderPk();renderSlots();renderSum();renderList();
+</script>
+</body>
+</html>
