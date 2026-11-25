@@ -92,6 +92,9 @@ input[type=date]{-webkit-appearance:none;appearance:none;min-height:48px}
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:100%;border-radius:16px;object-fit:contain}
 .lb button{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#4a2f3a;font-size:24px;cursor:pointer}
+.grp{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:600;color:var(--gold);margin:34px 0 14px;display:flex;align-items:center;gap:14px}
+.grp::after{content:"";flex:1;height:1px;background:var(--line)}
+@media(max-width:520px){.nav .nl{display:none}.nav{padding-left:10px;justify-content:center}}
 footer{text-align:center;color:var(--mute);margin:60px auto calc(30px + env(safe-area-inset-bottom,0px));max-width:560px;border-radius:999px;padding:14px 22px;font-size:14px}
 footer a{color:var(--rose-d)}
 @media(max-width:780px){.form{grid-template-columns:1fr}.sum{position:static}.hero{grid-template-columns:1fr;gap:26px;padding-top:84px;min-height:0}.arch{order:-1;width:min(78%,300px)}.hcard{padding:32px 22px;border-radius:30px}.logo{font-size:32px}}
@@ -99,7 +102,7 @@ footer a{color:var(--rose-d)}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Navigasi"><a class="nl" href="#top">LUMEA</a><div><a href="#pricelist">Harga</a><a href="#galeri">Galeri</a><a href="#booking">Booking</a></div></nav>
+<nav class="nav" aria-label="Navigasi"><a class="nl" href="#top">LUMEA</a><div><a href="#pricelist">Wisuda</a><a href="#acara">Acara</a><a href="#galeri">Galeri</a><a href="#booking">Booking</a></div></nav>
 <section class="hero wrap" id="top">
   <div class="hcard glass">
     <h1 class="logo">LUMEA</h1>
@@ -114,7 +117,7 @@ footer a{color:var(--rose-d)}
 <div class="wrap">
 
 <section id="pricelist" aria-labelledby="hPL">
-  <h2 id="hPL">Price list</h2>
+  <h2 id="hPL">Price list wisuda</h2>
   <p class="sub">Pilih paket untuk mulai booking.</p>
   <div class="grid" id="pkgs">
     <div class="pkg"><h3>Personal</h3><span class="pr">Rp 300.000</span><ul><li>1,5 jam</li><li>25 foto editing</li></ul></div>
@@ -127,6 +130,25 @@ footer a{color:var(--rose-d)}
     <span class="p">+ Rp 150.000</span>
   </div>
   <div class="perks"><span>📷 Fotografer profesional</span><span>✦ Hasil foto high quality</span><span>✉ Pengiriman foto cepat &amp; aman</span></div>
+</section>
+
+<section id="acara" aria-labelledby="hAC">
+  <h2 id="hAC">Price list acara</h2>
+  <p class="sub">Untuk event, birthday party, dan acara lainnya. Pilih paket untuk mulai booking.</p>
+  <h3 class="grp">Foto only</h3>
+  <div class="grid" id="evFoto">
+    <div class="pkg"><h3>Event Full Day</h3><span class="pr">Rp 800.000</span><ul><li>Full day</li><li>50 foto editing</li></ul></div>
+    <div class="pkg"><h3>Birthday Party</h3><span class="pr">Rp 700.000</span><ul><li>2–4 jam</li><li>40 foto editing</li></ul></div>
+  </div>
+  <h3 class="grp">Videographer</h3>
+  <div class="grid" id="evVideo">
+    <div class="pkg"><h3>Event Full Day</h3><span class="pr">Rp 1.350.000</span><ul><li>Full day</li><li>Video full editing</li><li>Revisi maks. 3x</li></ul></div>
+    <div class="pkg"><h3>Birthday Party</h3><span class="pr">Rp 900.000</span><ul><li>Birthday party</li><li>Video full editing</li><li>Maks. 3 menit video editing</li></ul></div>
+  </div>
+  <div class="addon">
+    <div style="flex:1;min-width:240px"><b>Add on: Editing foto tambahan</b><small>Minimal order 10 foto. Isi jumlahnya di form booking.</small></div>
+    <span class="p">Rp 3.000 / foto</span>
+  </div>
 </section>
 
 <section id="galeri" aria-labelledby="hGL">
@@ -156,10 +178,11 @@ footer a{color:var(--rose-d)}
     <div class="box">
       <label class="f"><span>Paket</span>
         <select id="pkgSel"></select></label>
+      <label class="f"><span>Tambahan editing foto (opsional · min. 10 foto · Rp 3.000/foto)</span><input type="text" id="extra" inputmode="numeric" pattern="[0-9]*" placeholder="Jumlah foto, contoh: 10"></label>
       <label class="f"><span>Nama lengkap</span><input type="text" id="nama" autocomplete="name" placeholder="Nama kamu"></label>
       <label class="f"><span>Nomor WhatsApp</span><input type="tel" id="hp" autocomplete="tel" placeholder="08xxxxxxxxxx"></label>
-      <label class="f"><span>Universitas / lokasi wisuda</span><input type="text" id="lokasi" placeholder="Contoh: Kampus UI Depok"></label>
-      <label class="f"><span>Tanggal sesi foto</span><input type="date" id="tgl"></label>
+      <label class="f"><span>Lokasi acara / wisuda</span><input type="text" id="lokasi" placeholder="Contoh: Kampus UI Depok / nama venue acara"></label>
+      <label class="f"><span>Tanggal acara / sesi</span><input type="date" id="tgl"></label>
       <div><span style="display:block;font-size:14px;color:var(--mute);margin-bottom:6px">Jam mulai</span>
         <div class="slots" id="slots"></div></div>
       <label class="f"><span>Catatan (konsep, jumlah orang, request video)</span><textarea id="cat" rows="3"></textarea></label>
@@ -201,38 +224,52 @@ var PK=[
  {id:"personal",name:"Personal",price:300000,jam:"1,5 jam",foto:"25 foto editing",video:false},
  {id:"family",name:"Family",price:350000,jam:"1,5 jam",foto:"30 foto editing",video:false},
  {id:"all",name:"All Include",price:450000,jam:"2 jam",foto:"40 foto editing",video:false},
- {id:"allvideo",name:"All Include + Video Cinematic",price:550000,jam:"2 jam (maks. 2 jam)",foto:"40 foto editing",video:true}
+ {id:"allvideo",name:"All Include + Video Cinematic",price:550000,jam:"2 jam (maks. 2 jam)",foto:"40 foto editing",video:true},
+ {id:"evf-full",ev:"foto",grp:"Foto only",name:"Event Full Day",price:800000,jam:"Full day",foto:"50 foto editing"},
+ {id:"evf-bday",ev:"foto",grp:"Foto only",name:"Birthday Party",price:700000,jam:"2–4 jam",foto:"40 foto editing"},
+ {id:"evv-full",ev:"video",grp:"Videographer",name:"Event Full Day",price:1350000,jam:"Full day",foto:"Video full editing",note:"Revisi maks. 3x",ph:false},
+ {id:"evv-bday",ev:"video",grp:"Videographer",name:"Birthday Party",price:900000,jam:"Birthday party",foto:"Video full editing",note:"Maks. 3 menit video editing",ph:false}
 ];
+var EXTRA=3000, EXMIN=10;
 var ADDON=150000, SLOTS=["07:00","08:00","09:00","10:00","13:00","14:00","15:00","16:00"];
 var state={pkg:"personal",addon:false,slot:""};
 var $=function(i){return document.getElementById(i)};
 var rp=function(n){return "Rp "+n.toLocaleString("id-ID")};
 var cur=function(){return PK.filter(function(p){return p.id===state.pkg})[0]};
+var label=function(p){return p.grp?p.grp+" – "+p.name:p.name};
+var rawExtra=function(){var n=parseInt($("extra").value,10);return n>0?n:0};
+var extraN=function(){var p=cur(),n=rawExtra();return(p.ph===false||n<EXMIN)?0:n};
 
+function card(p){return '<button type="button" class="pkg" data-id="'+p.id+'" aria-pressed="'+(p.id===state.pkg)+'"><h3>'+p.name+'</h3><span class="pr">'+rp(p.price)+'</span><ul><li>'+p.jam+'</li><li>'+p.foto+'</li>'+(p.video?'<li>Video cinematic</li>':'')+(p.note?'<li>'+p.note+'</li>':'')+'</ul><span class="pick">'+(p.id===state.pkg?"Dipilih ✓":"Pilih paket")+'</span></button>'}
 function renderPk(){
-  $("pkgs").innerHTML=PK.map(function(p){
-    return '<button type="button" class="pkg" data-id="'+p.id+'" aria-pressed="'+(p.id===state.pkg)+'"><h3>'+p.name+'</h3><span class="pr">'+rp(p.price)+'</span><ul><li>'+p.jam+'</li><li>'+p.foto+'</li>'+(p.video?'<li>Video cinematic</li>':'')+'</ul><span class="pick">'+(p.id===state.pkg?"Dipilih ✓":"Pilih paket")+'</span></button>';
-  }).join("");
-  $("pkgSel").innerHTML=PK.map(function(p){return '<option value="'+p.id+'"'+(p.id===state.pkg?" selected":"")+'>'+p.name+' – '+rp(p.price)+'</option>'}).join("");
+  $("pkgs").innerHTML=PK.filter(function(p){return !p.ev}).map(card).join("");
+  $("evFoto").innerHTML=PK.filter(function(p){return p.ev==="foto"}).map(card).join("");
+  $("evVideo").innerHTML=PK.filter(function(p){return p.ev==="video"}).map(card).join("");
+  $("pkgSel").innerHTML=PK.map(function(p){return '<option value="'+p.id+'"'+(p.id===state.pkg?" selected":"")+'>'+label(p)+' – '+rp(p.price)+'</option>'}).join("");
 }
 function renderSlots(){
   $("slots").innerHTML=SLOTS.map(function(s){return '<button type="button" class="slot" data-s="'+s+'" aria-pressed="'+(s===state.slot)+'">'+s+'</button>'}).join("");
 }
-function total(){var p=cur();return p.price+(state.addon&&!p.video?ADDON:0)}
+function vAddOk(p){return !p.video&&!p.ev}
+function total(){var p=cur();return p.price+(state.addon&&vAddOk(p)?ADDON:0)+extraN()*EXTRA}
 function fmtDate(v){if(!v)return "-";var d=new Date(v+"T00:00:00");return d.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function renderSum(){
-  var p=cur(), ad=state.addon&&!p.video;
-  $("addonChk").disabled=p.video;
+  var p=cur(), ad=state.addon&&vAddOk(p);
+  $("addonChk").disabled=!vAddOk(p);
   $("addonChk").checked=ad;
-  var rows=[["Paket",p.name],["Durasi",p.jam],["Hasil",p.foto+(p.video?" + video":"")]];
+  $("extra").disabled=p.ph===false;
+  if(p.ph===false)$("extra").value="";
+  var rows=[["Paket",label(p)],["Durasi",p.jam],["Hasil",p.foto+(p.video?" + video":"")]];
   if(ad)rows.push(["Add on","Video Cinematic (+ "+rp(ADDON)+")"]);
+  if(extraN())rows.push(["Tambahan editing",extraN()+" foto (+ "+rp(extraN()*EXTRA)+")"]);
   rows.push(["Tanggal",fmtDate($("tgl").value)],["Jam",state.slot||"-"]);
   $("sumRows").innerHTML=rows.map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'}).join("");
   $("total").textContent=rp(total());
 }
-function setPkg(id){state.pkg=id;if(cur().video)state.addon=false;renderPk();renderSum()}
+function setPkg(id){state.pkg=id;if(!vAddOk(cur()))state.addon=false;renderPk();renderSum()}
 
-$("pkgs").addEventListener("click",function(e){var b=e.target.closest(".pkg");if(!b)return;setPkg(b.dataset.id);$("goBook").focus&&0;document.getElementById("booking").scrollIntoView({behavior:"smooth"})});
+[$("pkgs"),$("evFoto"),$("evVideo")].forEach(function(c){c.addEventListener("click",function(e){var b=e.target.closest(".pkg");if(!b)return;setPkg(b.dataset.id);document.getElementById("booking").scrollIntoView({behavior:"smooth"})})});
+$("extra").addEventListener("input",renderSum);
 $("pkgSel").addEventListener("change",function(e){setPkg(e.target.value)});
 $("addonChk").addEventListener("change",function(e){state.addon=e.target.checked;renderSum()});
 $("slots").addEventListener("click",function(e){var b=e.target.closest(".slot");if(!b)return;state.slot=b.dataset.s;renderSlots();renderSum()});
@@ -251,12 +288,13 @@ function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"
 $("submit").addEventListener("click",function(){
   var n=$("nama").value.trim(),h=$("hp").value.replace(/[\s-]/g,""),l=$("lokasi").value.trim(),d=$("tgl").value;
   var e="",fid="";
-  ["nama","hp","lokasi","tgl"].forEach(function(i){$(i).classList.remove("bad")});
+  ["nama","hp","lokasi","tgl","extra"].forEach(function(i){$(i).classList.remove("bad")});
   if(!n){e="Isi nama lengkap dulu.";fid="nama"}
   else if(!/^(\+62|62|0)8\d{7,12}$/.test(h)){e="Nomor WhatsApp belum valid. Contoh: 081234567890.";fid="hp"}
-  else if(!l){e="Isi lokasi wisuda.";fid="lokasi"}
-  else if(!d){e="Pilih tanggal sesi foto.";fid="tgl"}
+  else if(!l){e="Isi lokasi acara.";fid="lokasi"}
+  else if(!d){e="Pilih tanggal acara.";fid="tgl"}
   else if(!state.slot){e="Pilih jam mulai.";fid="slots"}
+  else if(cur().ph!==false&&rawExtra()>0&&rawExtra()<EXMIN){e="Tambahan editing foto minimal "+EXMIN+" foto.";fid="extra"}
   $("err").textContent=e;
   if(e){
     var el=$(fid);if(fid!=="slots")el.classList.add("bad");
@@ -264,14 +302,14 @@ $("submit").addEventListener("click",function(){
     if(fid!=="slots"){try{el.focus({preventScroll:true})}catch(x){}}
     return;
   }
-  var p=cur(),ad=state.addon&&!p.video;
+  var p=cur(),ad=state.addon&&vAddOk(p),ex=extraN();
   var code="LF-"+Math.random().toString(36).slice(2,6).toUpperCase()+String(Date.now()).slice(-3);
-  var msg="Halo Lumea Frame, saya ingin booking foto wisuda.\n\nKode: "+code+"\nNama: "+n+"\nWhatsApp: "+$("hp").value.trim()+"\nPaket: "+p.name+" ("+rp(p.price)+")\n"+(ad?"Add on: Video Cinematic (+"+rp(ADDON)+")\n":"")+"Lokasi: "+l+"\nTanggal: "+fmtDate(d)+"\nJam: "+state.slot+"\nCatatan: "+($("cat").value.trim()||"-")+"\n\nTotal: "+rp(total())+"\n\nTerima kasih!";
+  var msg="Halo Lumea Frame, saya ingin booking.\n\nKode: "+code+"\nNama: "+n+"\nWhatsApp: "+$("hp").value.trim()+"\nPaket: "+label(p)+" ("+rp(p.price)+")\n"+(ad?"Add on: Video Cinematic (+"+rp(ADDON)+")\n":"")+(ex?"Add on: Tambahan editing "+ex+" foto (+"+rp(ex*EXTRA)+")\n":"")+"Lokasi: "+l+"\nTanggal: "+fmtDate(d)+"\nJam: "+state.slot+"\nCatatan: "+($("cat").value.trim()||"-")+"\n\nTotal: "+rp(total())+"\n\nTerima kasih!";
   $("code").textContent=code;$("msg").value=msg;
   var wa="https://wa.me/6281219197953?text="+encodeURIComponent(msg);
   $("waBtn").href=wa;
   try{window.open(wa,"_blank","noopener")}catch(x){}
-  bookings.push({code:code,pkg:p.name+(ad?" + Video":""),date:fmtDate(d),time:state.slot,total:rp(total())});
+  bookings.push({code:code,pkg:label(p)+(ad?" + Video":"")+(ex?" + "+ex+" foto edit":""),date:fmtDate(d),time:state.slot,total:rp(total())});
   try{var a=JSON.parse(localStorage.getItem("lf_b")||"[]");a.push(bookings[bookings.length-1]);localStorage.setItem("lf_b",JSON.stringify(a))}catch(x){}
   renderList();
   $("formArea").style.display="none";$("done").classList.add("on");
@@ -283,7 +321,7 @@ $("copy").addEventListener("click",function(){
   try{navigator.clipboard.writeText(m.value).then(ok,function(){m.select();document.execCommand("copy");ok()})}catch(x){m.select();try{document.execCommand("copy");ok()}catch(y){}}
 });
 $("again").addEventListener("click",function(){
-  ["nama","hp","lokasi","tgl","cat"].forEach(function(i){$(i).value=""});
+  ["nama","hp","lokasi","tgl","cat","extra"].forEach(function(i){$(i).value=""});
   state.slot="";renderSlots();renderSum();
   $("done").classList.remove("on");$("formArea").style.display="";
   $("formArea").scrollIntoView({behavior:"smooth"});
